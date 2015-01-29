@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Метод Ейлера</string>
+    <string name="calculate">Вычислить</string>
+    <string name="errorTitle">Ошибка</string>
+    <string name="errorMessage">Не удалость интерпретировать уравнения</string>
+    <string name="back">Вернуться</string>
+</resources>
