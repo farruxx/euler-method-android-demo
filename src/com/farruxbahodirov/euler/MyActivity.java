@@ -16,16 +16,16 @@ public class MyActivity extends Activity implements View.OnClickListener {
     EditText a;                     // начальные координаты
     EditText b;                     // конечные координаты
     EditText eps;                   //точность
-    EditText answer;
-    TextView shortAnswer;
-    RangeBar rangeBar;
+    EditText answer;                //полный ответ
+    TextView shortAnswer;           //ответ
+    RangeBar rangeBar;              //интервал
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-        Button button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(this);
+        setContentView(R.layout.main);//элементы UI
+        Button button = (Button) findViewById(R.id.button);//кнопка "Вычисления"
+        button.setOnClickListener(this);//
         y0 = (EditText) findViewById(R.id.y0);
         eq = (EditText) findViewById(R.id.eq);
         a = (EditText) findViewById(R.id.a);
