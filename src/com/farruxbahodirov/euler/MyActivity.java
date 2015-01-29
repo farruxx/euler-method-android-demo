@@ -25,8 +25,8 @@ public class MyActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);//элементы UI
         Button button = (Button) findViewById(R.id.button);//кнопка "Вычисления"
-        button.setOnClickListener(this);//
-        y0 = (EditText) findViewById(R.id.y0);
+        button.setOnClickListener(this);//click listener для кнопки
+        y0 = (EditText) findViewById(R.id.y0);  //иницилизация элементов
         eq = (EditText) findViewById(R.id.eq);
         a = (EditText) findViewById(R.id.a);
         b = (EditText) findViewById(R.id.b);
@@ -34,7 +34,7 @@ public class MyActivity extends Activity implements View.OnClickListener {
         answer = (EditText) findViewById(R.id.answer);
         shortAnswer = (TextView) findViewById(R.id.shortAnswer);
         rangeBar = (RangeBar) findViewById(R.id.rangeBar);
-        rangeBar.setTickCount(10);
+        rangeBar.setTickCount(10);//параметры интервала
         rangeBar.setTickHeight(5);
         rangeBar.setThumbIndices(Integer.parseInt(a.getText().toString()) + 2, Integer.parseInt(b.getText().toString()) + 2);
         rangeBar.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
@@ -48,10 +48,10 @@ public class MyActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        calculate();
+        calculate();//дейсвия при клике по кнопке
     }
 
-    private void calculate() {
+    private void calculate() {//отправка параметров в конструктор класса
         EulerMethod euler = new EulerMethod(eq.getText().toString(), y0.getText().toString(),
                 a.getText().toString(),
                 b.getText().toString(),
@@ -59,11 +59,12 @@ public class MyActivity extends Activity implements View.OnClickListener {
         );
 
         try {
-            EulerAnswer eulerAnswer=euler.calculate();
+            EulerAnswer eulerAnswer=euler.calculate();//вызов метода класса
             answer.setText(eulerAnswer.getAnswerString());
             shortAnswer.setText("x=" + String.format("%.2f", eulerAnswer.getX()) + "   y=" + String.format("%1.2f", eulerAnswer.getY()) + "\n");
             answer.requestFocus();
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {//при случае если введены недопустимые
+                                                // символы в уравнении
             e.printStackTrace();
             AlertDialog.Builder builder = new AlertDialog.Builder(MyActivity.this);
             builder.setTitle(R.string.errorTitle);
@@ -74,7 +75,7 @@ public class MyActivity extends Activity implements View.OnClickListener {
                     eq.requestFocus();
                 }
             });
-            builder.show();
+            builder.show();//показать диалог
         }
     }
 }

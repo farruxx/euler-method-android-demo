@@ -2,6 +2,7 @@ package com.farruxbahodirov.euler;
 
 /**
  * Created by Farruxx on 29.01.2015.
+ * Реализация класса MethodAnswer. Послужит типом для возвращения ответа в EulerMethod
  */
 public class EulerAnswer extends MethodAnswer{
 
